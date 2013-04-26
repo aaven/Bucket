@@ -1,4 +1,7 @@
 Bucket::Application.routes.draw do
+  resources :bucketlists
+
+
   get "home/index"
   root :to => "home#index"
 

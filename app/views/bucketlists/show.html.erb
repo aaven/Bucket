@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @bucketlist.title %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @bucketlist.position %>
+</p>
+
+<p>
+  <b>Nextid:</b>
+  <%= @bucketlist.nextId %>
+</p>
+
+
+<%= link_to 'Edit', edit_bucketlist_path(@bucketlist) %> |
+<%= link_to 'Back', bucketlists_path %>

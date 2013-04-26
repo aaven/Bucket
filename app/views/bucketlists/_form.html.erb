@@ -1,0 +1,29 @@
+<%= form_for(@bucketlist) do |f| %>
+  <% if @bucketlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bucketlist.errors.count, "error") %> prohibited this bucketlist from being saved:</h2>
+
+      <ul>
+      <% @bucketlist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.number_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :nextId %><br />
+    <%= f.number_field :nextId %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing bucketlists</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Position</th>
+    <th>Nextid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bucketlists.each do |bucketlist| %>
+  <tr>
+    <td><%= bucketlist.title %></td>
+    <td><%= bucketlist.position %></td>
+    <td><%= bucketlist.nextId %></td>
+    <td><%= link_to 'Show', bucketlist %></td>
+    <td><%= link_to 'Edit', edit_bucketlist_path(bucketlist) %></td>
+    <td><%= link_to 'Destroy', bucketlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bucketlist', new_bucketlist_path %>
