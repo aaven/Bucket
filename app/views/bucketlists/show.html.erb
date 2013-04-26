@@ -15,6 +15,33 @@
   <%= @bucketlist.nextId %>
 </p>
 
+<h2>Items</h2>
+<% @bucketlist.items.each do |item| %>
+  <p>
+    <b>Content:</b>
+    <%= item.content %>
+  </p>
+ 
+  <p>
+    <b>Position:</b>
+    <%= item.position %>
+  </p>
+<% end %>
+ 
+<h2>Add an item:</h2>
+<%= form_for([@bucketlist, @bucketlist.items.build]) do |f| %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.number_field :position %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_bucketlist_path(@bucketlist) %> |
 <%= link_to 'Back', bucketlists_path %>
