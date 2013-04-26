@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426004940) do
+ActiveRecord::Schema.define(:version => 20130426005420) do
 
   create_table "bucketlists", :force => true do |t|
     t.string   "title"
@@ -20,5 +20,15 @@ ActiveRecord::Schema.define(:version => 20130426004940) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "items", :force => true do |t|
+    t.text     "content"
+    t.integer  "position"
+    t.integer  "bucketlist_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "items", ["bucketlist_id"], :name => "index_items_on_bucketlist_id"
 
 end

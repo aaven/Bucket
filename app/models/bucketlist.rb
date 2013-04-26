@@ -3,4 +3,6 @@ class Bucketlist < ActiveRecord::Base
 
   validates :position,  :presence => true
   validates :title, :presence => true
+
+  has_many :items
 end
