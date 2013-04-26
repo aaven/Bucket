@@ -1,41 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @bucketlist.title %>
+  <h2><%= @bucketlist.title %></h2>
 </p>
 
-<p>
-  <b>Position:</b>
-  <%= @bucketlist.position %>
+<p>Items in this bucket can be proceeded to Bucket #
+	<b><%= @bucketlist.nextId %></b>
 </p>
 
-<p>
-  <b>Nextid:</b>
-  <%= @bucketlist.nextId %>
-</p>
+<ul>
+	<% @bucketlist.items.each do |item| %>
+	  <li><%= item.content %></li>
+	<% end %>
+</ul>
 
-<h2>Items</h2>
-<% @bucketlist.items.each do |item| %>
-  <p>
-    <b>Content:</b>
-    <%= item.content %>
-  </p>
- 
-  <p>
-    <b>Position:</b>
-    <%= item.position %>
-  </p>
-<% end %>
- 
+<br />
 <h2>Add an item:</h2>
 <%= form_for([@bucketlist, @bucketlist.items.build]) do |f| %>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content %>
     <%= f.text_field :content %>
   </div>
   <div class="field">
-    <%= f.label :position %><br />
+    <%= f.label :position %>
     <%= f.number_field :position %>
   </div>
   <div class="actions">
@@ -43,5 +30,6 @@
   </div>
 <% end %>
 
+<br />
 <%= link_to 'Edit', edit_bucketlist_path(@bucketlist) %> |
 <%= link_to 'Back', bucketlists_path %>
